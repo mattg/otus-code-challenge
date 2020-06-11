@@ -8,7 +8,7 @@ For this project, I created a reusable multi-select input component.
 2. Run `yarn`
 3. Run `yarn start`
 
-This should launch the demo in your browser. You can also go to http://localhost:3000 to view it.'
+This should launch the demo in your browser. You can also go to http://localhost:3000 to view it.
 
 ## API
 
