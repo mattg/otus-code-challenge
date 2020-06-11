@@ -1,68 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# <MultiSelect>
 
-## Available Scripts
+For this project, I created a reusable multi-select input component.
 
-In the project directory, you can run:
+## Running the demo
 
-### `yarn start`
+1. Clone the repository
+2. Run `yarn`
+3. Run `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This should launch the demo in your browser. You can also go to http://localhost:3000 to view it.'
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## API
 
-### `yarn test`
+To use the component in your project:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Copy the `src/multi-select` directory into your project
+2. Add this line to the component that will include the multi-select:
+  ```
+  import MultiSelect from 'multi-select';
+  ```
+3. Add the following lines to your component's return:
+  ```
+  <MultiSelect
+    data={data}
+    fieldName='students_and_groups'
+    label='Select Students and Groups'
+  />
+  ```
 
-### `yarn build`
+### fieldName
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`fieldName` is a required string. It is the value you would typically put in the `name` attribute of an input tag.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### label
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`label` is a required string. It will be used as the label for the multi-select component.
 
-### `yarn eject`
+### data
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`data` is a required object. It must be in the following format:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
+{
+  "students": [ // This will be capitalized when displayed
+    {
+      "id": "1510905", // "id" is required
+      "name": "Hayleigh Edwards", // Each object must have "name" or "title"
+      "avatar_attachment_id": "https://my.otus.com/assets/images/placeholder-profile-image.png" // "avatar_attachment_id" is an optional image URL
+    },
+    {
+      "id": "1882243",
+      "name": "Pema Edwards",
+      "avatar_attachment_id": "https://my.otus.com/assets/images/placeholder-profile-image.png"
+    }
+  ],
+  "groups": [
+    {
+      "id": "43875",
+      "title": "Project Group 1"
+    },
+    {
+      "id": "43876",
+      "title": "Project Group 2"
+    }
+  ]
+}
+```
